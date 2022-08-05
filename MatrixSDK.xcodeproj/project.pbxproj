@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -651,6 +651,12 @@
 		32FE41371D0AB7070060835E /* MXEnumConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FE41351D0AB7070060835E /* MXEnumConstants.m */; };
 		32FFB4F0217E146A00C96002 /* MXRecoveryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FFB4EE217E146A00C96002 /* MXRecoveryKey.h */; };
 		32FFB4F1217E146A00C96002 /* MXRecoveryKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FFB4EF217E146A00C96002 /* MXRecoveryKey.m */; };
+		33C2FCBD289D84C800C83E31 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 33C2FCBC289D84C800C83E31 /* SwiftyBeaver */; };
+		33C2FCC0289D857100C83E31 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 33C2FCBF289D857100C83E31 /* Realm */; };
+		33C2FCC2289D857100C83E31 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 33C2FCC1289D857100C83E31 /* RealmSwift */; };
+		33C2FCC4289D862A00C83E31 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 33C2FCC3289D862A00C83E31 /* SwiftyBeaver */; };
+		33C2FCC6289D862E00C83E31 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 33C2FCC5289D862E00C83E31 /* RealmSwift */; };
+		33C2FCC8289D863400C83E31 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 33C2FCC7289D863400C83E31 /* Realm */; };
 		3489B40A85709695DC4EB17C /* Pods_MatrixSDK_MatrixSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F669A7EDB909643AE4F39F80 /* Pods_MatrixSDK_MatrixSDK_iOS.framework */; };
 		3A0AF06B2705A11400679D1A /* MXSpaceGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AF06A2705A11400679D1A /* MXSpaceGraphData.swift */; };
 		3A0AF06C2705A11400679D1A /* MXSpaceGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AF06A2705A11400679D1A /* MXSpaceGraphData.swift */; };
@@ -2884,7 +2890,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C2FCC2289D857100C83E31 /* RealmSwift in Frameworks */,
+				33C2FCC0289D857100C83E31 /* Realm in Frameworks */,
 				3489B40A85709695DC4EB17C /* Pods_MatrixSDK_MatrixSDK_iOS.framework in Frameworks */,
+				33C2FCBD289D84C800C83E31 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2901,7 +2910,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C2FCC6289D862E00C83E31 /* RealmSwift in Frameworks */,
 				E546D7C181017A4043F19887 /* Pods_MatrixSDK_MatrixSDK_macOS.framework in Frameworks */,
+				33C2FCC8289D863400C83E31 /* Realm in Frameworks */,
+				33C2FCC4289D862A00C83E31 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5878,6 +5890,11 @@
 			dependencies = (
 			);
 			name = "MatrixSDK-iOS";
+			packageProductDependencies = (
+				33C2FCBC289D84C800C83E31 /* SwiftyBeaver */,
+				33C2FCBF289D857100C83E31 /* Realm */,
+				33C2FCC1289D857100C83E31 /* RealmSwift */,
+			);
 			productName = MatrixSDK;
 			productReference = 32C6F92D19DD814400EA4E9C /* MatrixSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -5917,6 +5934,11 @@
 			dependencies = (
 			);
 			name = "MatrixSDK-macOS";
+			packageProductDependencies = (
+				33C2FCC3289D862A00C83E31 /* SwiftyBeaver */,
+				33C2FCC5289D862E00C83E31 /* RealmSwift */,
+				33C2FCC7289D863400C83E31 /* Realm */,
+			);
 			productName = MatrixSDK;
 			productReference = B14EF36B2397E90400758AF0 /* MatrixSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -5972,6 +5994,10 @@
 				en,
 			);
 			mainGroup = 32C6F92319DD814400EA4E9C;
+			packageReferences = (
+				33C2FCBB289D84C800C83E31 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				33C2FCBE289D857100C83E31 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 32C6F92E19DD814400EA4E9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -7406,7 +7432,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MatrixSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
@@ -7433,7 +7463,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MatrixSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
@@ -7460,7 +7494,11 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MatrixSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
@@ -7485,7 +7523,11 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MatrixSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
@@ -7511,7 +7553,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/MatrixSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "$(inherited)";
@@ -7539,7 +7585,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/MatrixSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "$(inherited)";
@@ -7571,7 +7621,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MatrixSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -7603,7 +7657,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MatrixSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_FAST_MATH = YES;
@@ -7663,6 +7721,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		33C2FCBB289D84C800C83E31 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.9.5;
+			};
+		};
+		33C2FCBE289D857100C83E31 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.27.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		33C2FCBC289D84C800C83E31 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33C2FCBB289D84C800C83E31 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+		33C2FCBF289D857100C83E31 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33C2FCBE289D857100C83E31 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		33C2FCC1289D857100C83E31 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33C2FCBE289D857100C83E31 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		33C2FCC3289D862A00C83E31 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33C2FCBB289D84C800C83E31 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+		33C2FCC5289D862E00C83E31 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33C2FCBE289D857100C83E31 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		33C2FCC7289D863400C83E31 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33C2FCBE289D857100C83E31 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		ED5AE8C22816C8CF00105072 /* MXCoreDataRoomSummaryStore.xcdatamodeld */ = {
